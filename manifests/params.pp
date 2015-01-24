@@ -33,9 +33,10 @@ class nginx::params {
     }
     'FreeBSD': {
       $_module_os_overrides = {
-        'conf_dir'    => '/usr/local/etc/nginx',
-        'daemon_user' => 'www',
-        'root_group'  => 'wheel',
+        'package_name' => 'www/nginx',
+        'conf_dir'     => '/usr/local/etc/nginx',
+        'daemon_user'  => 'www',
+        'root_group'   => 'wheel',
       }
     }
     'Gentoo': {

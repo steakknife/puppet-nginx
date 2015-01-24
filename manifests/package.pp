@@ -57,6 +57,15 @@ class nginx::package(
         source => $package_source,
       }
     }
+    'FreeBSD': {
+      package { 'nginx':
+        name    => $package_name,
+        source  => $package_source,
+        ensure  => $package_ensure,
+        require => Anchor['nginx::package::begin'],
+        before  => Anchor['nginx::package::end'],
+      }
+    }
     default: {
       package { 'nginx':
         ensure => $package_ensure,
